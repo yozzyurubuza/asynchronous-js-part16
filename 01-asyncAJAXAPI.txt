@@ -1,0 +1,50 @@
+
+Asynchronous JavaScript, AJAX, and APIs
+
+*So far, most of our code is synchronous, and synchronous code is executed line by line in the exact order of execution that we define in the code.
+
+*Alert statement is an example of Long-running operation that blocks code execution.
+
+
+Asynchronous
+- Asynchronous code is executed after a task that runs in the "background" finishes.
+
+- Asynchronous code is non-blocking
+
+- Execution doesn't wait for an asynchronous task to finish its work.
+
+- Coordinating behavior of a program over a period of time. (Not occuring at the same time)
+
+- Callback functions alone do not make code asynchronous
+
+Ex.
+
+img.src = 'dog.jpg'; -> This code is asynchronous because the code will not stop and wait for the image to load.
+
+- addEventListener does not automatically make code asynchronous.
+
+- Other examples: Geolocation API or AJAX calls.
+
+
+What are AJAX Calls?
+Asynchronous Javascript And XML: Allows us to communicate with remote web servers in an asynchronous way. With AJAX calls, we can request data from web servers dynamically.
+
+
+What is an API?
+Application Programming Interface: Piece of software that can be used by another piece of software, in order to allow applications to talk to each other.
+
+- There are many types of APIs in web development
+    +DOM API / +Geolocation API / +Own Class API /+Online API (just API)
+
+- "Online" API: Application running on a server, that receives requests for data, and sends data back as response.
+
+- We can build our own web APIs (requires back-end development, e.g with node.js) or use 3rd-party APIs.
+    + There is an API for everything
+        Ex. Weather data
+            Data about countries
+            Flights data
+            Currency conversion data
+            APIs for sending email or SMS
+            Google Maps
+
+* No API uses XML anymore, instead JSON data format is now commonly used.
