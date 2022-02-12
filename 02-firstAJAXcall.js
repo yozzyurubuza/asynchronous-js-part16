@@ -16,8 +16,9 @@ const getCountryData = function (country) {
     const [data] = JSON.parse(this.responseText);
     console.log(data);
 
-    const firstLang = getFirstObj(data.languages);
-    const firstCurr = getFirstObj(data.currencies);
+    //Format of restcountries changed, needed to improvise to get first object.
+    const firstLang = Object.values(data.languages)[0];
+    const firstCurr = Object.values(data.currencies)[0];
 
     const html = `
     <article class="country">
@@ -36,14 +37,6 @@ const getCountryData = function (country) {
     countriesContainer.insertAdjacentHTML('beforeend', html);
     countriesContainer.style.opacity = 1;
   });
-};
-
-//Format of restcountries changed, needed to improvise to get first object.
-const getFirstObj = function (obj) {
-  for (let val of Object.values(obj)) {
-    // console.log(val);
-    return val;
-  }
 };
 
 getCountryData('philippines');
