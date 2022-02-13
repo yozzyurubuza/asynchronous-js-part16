@@ -1,0 +1,82 @@
+How the Web Works: Requests and Responses
+
+Request-response model or Client-server architecture
+
+                Request
+Client ------------------------> Web Server
+       <------------------------
+                Response
+
+
+Step 1: DNS Lookup
+
+https://rescountries.eu/rest/v2/alpha/PT
+Protocol   Domain Name   Resource
+
+
+DNS = Domain Name Server
+- Domain name is not the real address
+- DNS converts the Domain name into the real IP Address of a website
+
+https://104.27.142.889:443
+Protocol  IP Address   Port Number 
+                       (Default 443 for HTTPS, 80 for HTTP)
+
+
+Step 2: TCP/IP socket connection
+
+Communication Protocols - They define exactly how data travels across the Web.
+TCP = Transmission Control Protocol
+        - Break the requests and responses down into thousands of small chunks, called packets before they are sent.
+        - Once the small packets arrive, TCP will reassemble into the original request or response.
+
+IP = Internet Protocol
+        - Send and route these packets through the internet.
+
+Step 3: HTTP Request
+
+HTTP - Hypertext Transfer Protocol
+     - Another communication Protocol - A system of rules that allow 2 or more parties to communicate (clients and web servers)
+
+Ex. Request Message
+
+GET /rest/v2/alpha/PT HTTP/1.1 -> Start line: HTTP method + 
+                                  request target + HTTP version
+
+Host: www.google.com
+User-Agent: Mozilla/5.0         -> HTTP request headers
+Accept-Language: en-US             (many different possibilities)
+
+<BODY>                          -> Request body (only when  
+                                   sending data to server e.g POST)
+
+Important HTTP methods:
+GET - request data
+POST - send data
+PUT and PATCH - modify data
+
+HTTPS vs HTTP
+*HTTPS is encrypted using TLS or SSL
+
+Step 4: HTTP Response
+
+Ex.
+
+HTTP/1.1 200 OK                 -> Start line: HTTP version +
+                                   status code + status message
+
+Date: Fri, 18 Jan 2021
+Content-Type: text/html         -> HTTP response headers 
+Transfer-Encoding: chunked
+
+<BODY>                          -> Response body (most responses)
+                                   May contain a JSON or HTML
+
+Step 5:
+
+*index.html is the first to be loaded
+
+*Scanned for assets: JS, CSS, images
+
+*Process is repeated for each file
+
