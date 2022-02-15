@@ -1,0 +1,44 @@
+Asynchronous Behind the Scenes: The Event Loop
+
+JavaScript Runtime
+    - "Container" which includes all the pieces necessary to execute JavaScript code
+
+JavaScript Engine
+    - This is where code is actually executed and where objects are stored in memory (Heart of the runtime).
+
+    - Has only ONE thread of execution. No multitasking!
+
+Web APIs
+    - Provided to the Engine
+    - Ex. DOM / Timers / Fetch API / etc.
+
+Callback Queue
+    - A data structure that holds all the Ready-to-be-executed callback functions (coming from events).
+    - Acts like a to-do list but with tasks that the call stack will eventually have to complete.
+
+Event Loop 
+    - Sends callbacks from queue to call stack
+    - Looks into the call stack and determines whether it's empty or not, except for the global context. If stack is empty, which means no code is currently executed, then it will take the first callback from the callback queue and put it in the call stack.
+    - Does the orchestration of the whole JavaScript runtime.
+
+Event Tick
+    - Each time the event loop takes a callback from the callback queue.
+
+Concurrency Model
+    - How a language handles multiple things happening at the same time.
+    - JavaScript is a non-blocking Concurrency Model
+
+
+How Asynchronous JavaScript Works Behind the Scenes
+
+* If there's only one thread of execution in the engine, then how can be Asynchronous code be executed in a non-blocking way?
+    - They have their own queues (callback queue and microtask queue).
+
+* setTimeout function does not guarantee it will run after 5 seconds, but it guarantees that it will not run before 5 seconds.
+
+* JavaScript has no sense of time. It is the runtime who manages all the Asynchronous behavior and it's the event loop who decides which code will be executed next.
+
+* Callbacks of promises have a special queue for themselves, which is called Microtasks Queue
+
+* Microtasks Queue has priority over the callback queue. Event loop will run the callbacks from this queue first before the regular callback queue.
+
