@@ -113,8 +113,9 @@ const getCountryData = function (country) {
 btn.addEventListener('click', function () {
   arrFunc.forEach(value => {
     setDelay += 2000;
+    const [lat, long] = value;
     setTimeout(() => {
-      whereAmI(value[0], value[1]);
+      whereAmI(lat, long);
     }, setDelay);
   });
   setDelay = 1000;
